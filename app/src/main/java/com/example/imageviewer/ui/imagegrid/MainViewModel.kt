@@ -1,5 +1,6 @@
-package com.example.imageviewer.imagegrid
+package com.example.imageviewer.ui.imagegrid
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,7 +11,10 @@ import com.google.gson.reflect.TypeToken
 
 class MainViewModel(private val gson: Gson, private val repo: Repo) : ViewModel() {
     private val _imagesJson = MutableLiveData("")
-    private val images = MediatorLiveData<List<ImageData>>()
+    private val _images = MediatorLiveData<List<ImageData>>()
+    val images: LiveData<List<ImageData>>
+        get() = _images
+
 
     init {
         initImagesJson()
@@ -22,10 +26,12 @@ class MainViewModel(private val gson: Gson, private val repo: Repo) : ViewModel(
     }
 
     private fun initImages() {
-        images.addSource(_imagesJson) {
-            val type = object : TypeToken<List<ImageData>>() {}.type
-            images.value = gson.fromJson(it, type)
-            images.removeSource(_imagesJson)
+        _images.addSource(_imagesJson) {
+            if (it.isNotBlank()) {
+                val type = object : TypeToken<List<ImageData>>() {}.type
+                _images.value = gson.fromJson(it, type)
+                _images.removeSource(_imagesJson)
+            }
         }
     }
 }
