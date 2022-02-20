@@ -8,26 +8,26 @@ import kotlinx.parcelize.Parcelize
 data class ImageData(
 
 	@field:SerializedName("date")
-	val date: String,
+	val date: String = "",
 
 	@field:SerializedName("copyright")
-	val copyright: String,
+	val copyright: String = "",
 
 	@field:SerializedName("media_type")
-	val mediaType: String,
+	val mediaType: String = "",
 
 	@field:SerializedName("hdurl")
-	val hdurl: String,
+	val hdurl: String = "",
 
 	@field:SerializedName("service_version")
-	val serviceVersion: String,
+	val serviceVersion: String = "",
 
 	@field:SerializedName("explanation")
-	val explanation: String,
+	val explanation: String = "",
 
 	@field:SerializedName("title")
-	val title: String,
+	val title: String = "",
 
 	@field:SerializedName("url")
-	val url: String
+	val url: String = ""
 ) : Parcelable

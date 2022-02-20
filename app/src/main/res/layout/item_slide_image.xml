@@ -2,23 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/cardview_compat_inset_shadow">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:id="@+id/ivSlide"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/image"
-        android:scaleType="centerInside"
+        android:layout_marginBottom="0dp"
         android:transitionName="Image"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/backgrounds/scenic"
+        android:contentDescription="@string/image" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -27,18 +25,18 @@
         android:background="@drawable/bg_gradient"
         android:ellipsize="end"
         android:gravity="bottom|center"
-        android:lines="1"
+        android:maxLines="2"
         android:paddingStart="8dp"
         android:paddingTop="40dp"
         android:paddingEnd="8dp"
-        android:paddingBottom="2dp"
+        android:paddingBottom="8dp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/ivSlide"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/ivSlide"
         app:layout_constraintVertical_bias="1.0"
-        tools:text="Avatar Image Name" />
+        tools:text="Slide Image Name" />
 </androidx.constraintlayout.widget.ConstraintLayout>
