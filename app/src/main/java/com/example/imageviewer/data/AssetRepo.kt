@@ -9,7 +9,7 @@ import java.io.IOException
 
 class AssetRepo(private val assets: AssetManager, private val gson: Gson) : Repo {
 
-    override fun getImagesData(): List<ImageData>{
+    override fun getImagesData(): List<ImageData> {
         val json = getImagesJson()
         return parseImagesData(json)
     }
@@ -18,7 +18,7 @@ class AssetRepo(private val assets: AssetManager, private val gson: Gson) : Repo
         return try {
             val type = object : TypeToken<List<ImageData>>() {}.type
             gson.fromJson(json, type)
-        }catch (e: JsonSyntaxException){
+        } catch (e: JsonSyntaxException) {
             Log.e(TAG, "getImagesData() failed with exception", e)
             emptyList()
         }
@@ -27,7 +27,7 @@ class AssetRepo(private val assets: AssetManager, private val gson: Gson) : Repo
     private fun getImagesJson(): String {
         return try {
             assets.open("data.json").bufferedReader().use { it.readText() }
-        }catch (e: IOException){
+        } catch (e: IOException) {
             Log.e(TAG, "getImagesJson() failed with exception", e)
             ""
         }

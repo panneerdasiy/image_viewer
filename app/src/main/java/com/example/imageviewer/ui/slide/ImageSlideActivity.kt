@@ -83,7 +83,7 @@ class ImageSlideActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val IMAGE_DATA = "IMAGE_DATA"
+        const val IMAGE_DATA = "IMAGE_DATA"
 
         fun start(activity: Activity, data: ImageData, options: ActivityOptionsCompat? = null) {
             val intent = Intent(activity, ImageSlideActivity::class.java)
